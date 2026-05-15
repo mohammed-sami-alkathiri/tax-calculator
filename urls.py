@@ -1,7 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include("taxapp.urls")),
+    path("", views.index, name="index"),
+    path("<int:number>", views.calculate, name="calculate"),
+    path("taxrate", views.taxrate, name="taxrate"),
 ]
